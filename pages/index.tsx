@@ -1,4 +1,4 @@
-import { Box, Heading, Image } from '@chakra-ui/react'
+import { Box, Heading, Image, Center } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Footer from '../components/footer/footer'
@@ -14,11 +14,15 @@ const Home: NextPage = () => {
         <link rel="icon" href="/eth-favicon.ico" />
       </Head>
       <NavBar/>
-      <Heading as='h1' size='2xl'>
-        Welcome to Euphoria Club!
-      </Heading>
 
-      <MintBox/>
+      <Center>
+        <Heading as='h1' size='2xl' colorScheme={'euphoria.100'}>
+          Welcome to Euphoria Club!
+        </Heading>
+      </Center>
+      <Center>
+        <MintBox/>
+      </Center>
 
       <Footer/>
     </>

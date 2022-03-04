@@ -32,7 +32,7 @@ const MintBox = () => {
                         </NumberInputStepper>
                     </NumberInput>
                     <Center>
-                        <Button size='lg' colorScheme='green' mt='1rem'>
+                        <Button size='lg' bg={'euphoria.500'} mt='1rem'>
                             Mint
                         </Button>
                     </Center>

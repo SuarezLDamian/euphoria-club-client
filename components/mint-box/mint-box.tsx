@@ -9,11 +9,11 @@ import {
 
 const MintBox = () => {
     return (
-        <Box maxW='md' borderWidth='3px' borderRadius='lg' mt='2rem'>
+        <Box maxW='md' borderWidth='3px' borderRadius='lg' mt='2rem' style={{background: '#7B2CBF'}}>
             <VStack spacing={1}>
                 <Center>
                     <Box padding={'2rem'}>
-                        <Image src='/sample-image.png' alt='Sample Epuhoria Club' />
+                        <Image src='/sample-image.png' alt='Sample Euphoria Club' style={{borderRadius: '0.5rem'}}/>
                     </Box>
                 </Center>
                 <Center>
@@ -32,7 +32,7 @@ const MintBox = () => {
                         </NumberInputStepper>
                     </NumberInput>
                     <Center>
-                        <Button size='lg' bg={'euphoria.500'} mt='1rem'>
+                        <Button size='lg' bg={'#5A189A'} mt='1rem'>
                             Mint
                         </Button>
                     </Center>

@@ -1,9 +1,13 @@
-import { Box, Heading, Image, Center } from '@chakra-ui/react'
+import { Box, Heading, Image, Center, Flex } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import FaqAccordion from '../components/faq-accordion/FaqAccordion'
 import Footer from '../components/footer/footer'
 import MintBox from '../components/mint-box/mint-box'
 import NavBar from '../components/navbar/navbar'
+import Hero from '../components/hero/hero'
+import TheClub from '../components/the-club/TheClub'
+import TheTeam from '../components/the-team/TheTeam'
 
 const Home: NextPage = () => {
   return (
@@ -13,16 +17,16 @@ const Home: NextPage = () => {
         <meta name="Euphoria Club" content="Euphoria series inspired NFT collection" />
         <link rel="icon" href="/eth-favicon.ico" />
       </Head>
+
       <NavBar/>
 
-      <Center>
-        <Heading as='h1' size='2xl' colorScheme={'euphoria.100'}>
-          Welcome to Euphoria Club!
-        </Heading>
-      </Center>
-      <Center>
-        <MintBox/>
-      </Center>
+      <Hero/>
+
+      <TheClub/>
+
+      <TheTeam/>
+
+      <FaqAccordion/>
 
       <Footer/>
     </>

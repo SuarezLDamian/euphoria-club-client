@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useCallback } from 'react';
 import {
   Box,
   Flex,
@@ -17,6 +17,8 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { useWeb3React } from '@web3-react/core'
+import { connector } from '../../config/web3/index'
 
 const Links = ['Twitter', 'Discord', 'Opensea'];
 
@@ -37,9 +39,33 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 function NavBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const {
+    activate,
+    active,
+    deactivate,
+    account,
+    chainId,
+    error
+  } = useWeb3React()
+
+  const connect = useCallback(() => {
+    activate(connector)
+    localStorage.setItem('previouslyConnected', 'true')
+  }, [activate])
+
+  const disconnect = () => {
+    deactivate()
+    localStorage.removeItem('previouslyConnected')
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem('previouslyConnected') === 'true')
+      connect()
+  }, [connect])
+
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box bg={useColorModeValue('#7B2CBF', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -49,7 +75,7 @@ function NavBar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>Logo</Box>
+            <Box>EUPHORIA CLUB NFT</Box>
             <HStack
               as={'nav'}
               spacing={4}
@@ -58,26 +84,42 @@ function NavBar() {
                 <NavLink key={link}>{link}</NavLink>
               ))} */}
                 {/* <NavLink href='twitter.com/elonmusk'>Hola</NavLink> */}
-                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer'>Twitter</a>
-                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer'>Discord</a>
-                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer'>Opensea</a>
+                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer'>The Club</a>
+                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer'>The Team</a>
+                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer'>FAQ</a>
                 {/* <NavLink >{link}</NavLink>
                 <NavLink >{link}</NavLink> */}
 
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
-          <Button
-              display={{ base: 'none', md: 'inline-flex' }}
-              fontSize={'sm'}
-              fontWeight={600}
-              color={'white'}
-              bg={'euphoria.100'}
-              _hover={{
-                bg: 'euphoria.200',
-              }}>
-              Connect Wallet
-            </Button>
+            {
+              active 
+              ? <Button
+                  display={{ base: 'none', md: 'inline-flex' }}
+                  fontSize={'sm'}
+                  fontWeight={600}
+                  color={'white'}
+                  bg={'euphoria.100'}
+                  onClick={disconnect}
+                  _hover={{
+                    bg: 'euphoria.200',
+                  }}>
+                  Disconnect Wallet
+                </Button>
+              : <Button
+                  display={{ base: 'none', md: 'inline-flex' }}
+                  fontSize={'sm'}
+                  fontWeight={600}
+                  color={'white'}
+                  bg={'euphoria.100'}
+                  onClick={connect}
+                  _hover={{
+                    bg: 'euphoria.200',
+                  }}>
+                  Connect Wallet
+                </Button>
+            }            
           </Flex>
         </Flex>
 

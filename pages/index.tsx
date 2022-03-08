@@ -18,9 +18,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/eth-favicon.ico" />
       </Head>
 
+      <Box minW='40rem'>
       <NavBar/>
 
-      <Box style={{backgroundImage:'/Artist.png'}}>
         <Hero/>
 
         <TheClub/>
@@ -29,9 +29,9 @@ const Home: NextPage = () => {
 
         <FaqAccordion/>
 
-      </Box>
 
       <Footer/>
+      </Box>
     </>
   )
 }

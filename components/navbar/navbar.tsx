@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useCallback } from 'react';
+import { ReactNode, useEffect, useCallback, useState } from 'react';
 import {
   Box,
   Flex,
@@ -19,6 +19,7 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useWeb3React } from '@web3-react/core'
 import { connector } from '../../config/web3/index'
+import ConnectionButton from '../connection-button/ConnectionButton';
 
 const Links = ['Twitter', 'Discord', 'Opensea'];
 
@@ -38,30 +39,6 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 
 function NavBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const {
-    activate,
-    active,
-    deactivate,
-    account,
-    chainId,
-    error
-  } = useWeb3React()
-
-  const connect = useCallback(() => {
-    activate(connector)
-    localStorage.setItem('previouslyConnected', 'true')
-  }, [activate])
-
-  const disconnect = () => {
-    deactivate()
-    localStorage.removeItem('previouslyConnected')
-  }
-
-  useEffect(() => {
-    if (localStorage.getItem('previouslyConnected') === 'true')
-      connect()
-  }, [connect])
 
   return (
     <>
@@ -93,33 +70,7 @@ function NavBar() {
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
-            {
-              active 
-              ? <Button
-                  display={{ base: 'none', md: 'inline-flex' }}
-                  fontSize={'sm'}
-                  fontWeight={600}
-                  color={'white'}
-                  bg={'euphoria.100'}
-                  onClick={disconnect}
-                  _hover={{
-                    bg: 'euphoria.200',
-                  }}>
-                  Disconnect Wallet
-                </Button>
-              : <Button
-                  display={{ base: 'none', md: 'inline-flex' }}
-                  fontSize={'sm'}
-                  fontWeight={600}
-                  color={'white'}
-                  bg={'euphoria.100'}
-                  onClick={connect}
-                  _hover={{
-                    bg: 'euphoria.200',
-                  }}>
-                  Connect Wallet
-                </Button>
-            }            
+            <ConnectionButton />
           </Flex>
         </Flex>
 

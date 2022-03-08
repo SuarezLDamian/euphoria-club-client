@@ -71,7 +71,7 @@ const FaqAccordion = () => {
                     commodo consequat.
                     </AccordionPanel>
                 </AccordionItem>
-
+                
                 <AccordionItem>
                     <h2>
                     <AccordionButton>

@@ -14,20 +14,16 @@ interface mintProps {
 
 const MintBox = ({mintedQuantity = 3, mintCost = 0.01 }: mintProps) => {
     return (
-        <Box minW='18rem' maxW='lg' maxH='33rem' borderWidth='3px' borderRadius='lg' style={{background: '#7B2CBF', marginRight: '3rem'}}>
+        <Box padding={'2rem'} minW='xs' maxW='lg' maxH='33rem' borderWidth='3px' borderRadius='lg' style={{background: '#7B2CBF'}}>
             <VStack spacing={1}>
                 <Center>
-                    <Box margin={'2rem'}>
-                        <Image boxSize={'200px'} src='/mint-gif.gif' alt='Sample Euphoria Club' style={{borderRadius: '0.5rem'}}/>
-                    </Box>
+                    <Image boxSize={'200px'} src='/mint-gif.gif' alt='Sample Euphoria Club' style={{borderRadius: '0.5rem'}}/>
                 </Center>
-                <Center>
-                    <Text fontSize='lg' style={{color: 'white'}}>{mintedQuantity} / 4420</Text>
-                </Center>
-                <Center>
+                <VStack spacing={1} padding={'1rem'}>
+                    <Text fontSize='lg' style={{color: 'white'}}>{mintedQuantity} / 4420</Text> 
                     <Text fontSize='lg' style={{color: 'white'}}>{mintCost} ETH</Text>
-                </Center>
-                <Box padding={'2rem'}>
+                </VStack>
+                <Box >
                     <Text fontSize='md' style={{color: 'white'}}>Enter quantity</Text>
                     <NumberInput defaultValue={1} min={1} max={10}>
                         <NumberInputField />

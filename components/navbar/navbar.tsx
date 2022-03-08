@@ -75,7 +75,7 @@ function NavBar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>EUPHORIA CLUB NFT</Box>
+            <Box style={{color: 'white'}}>EUPHORIA CLUB NFT</Box>
             <HStack
               as={'nav'}
               spacing={4}
@@ -84,9 +84,9 @@ function NavBar() {
                 <NavLink key={link}>{link}</NavLink>
               ))} */}
                 {/* <NavLink href='twitter.com/elonmusk'>Hola</NavLink> */}
-                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer'>The Club</a>
-                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer'>The Team</a>
-                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer'>FAQ</a>
+                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer' style={{color: 'white'}}>The Club</a>
+                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer' style={{color: 'white'}}>The Team</a>
+                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer' style={{color: 'white'}}>FAQ</a>
                 {/* <NavLink >{link}</NavLink>
                 <NavLink >{link}</NavLink> */}
 

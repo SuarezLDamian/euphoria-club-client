@@ -7,23 +7,28 @@ import {
     NumberDecrementStepper,
   } from '@chakra-ui/react';
 
-const MintBox = () => {
+interface mintProps {
+    mintedQuantity?: number,
+    mintCost?: number
+}
+
+const MintBox = ({mintedQuantity = 3, mintCost = 0.01 }: mintProps) => {
     return (
-        <Box maxW='md' borderWidth='3px' borderRadius='lg' mt='2rem' style={{background: '#7B2CBF'}}>
+        <Box minW='18rem' maxW='lg' maxH='33rem' borderWidth='3px' borderRadius='lg' style={{background: '#7B2CBF', marginRight: '3rem'}}>
             <VStack spacing={1}>
                 <Center>
-                    <Box padding={'2rem'}>
-                        <Image src='/sample-image.png' alt='Sample Euphoria Club' style={{borderRadius: '0.5rem'}}/>
+                    <Box margin={'2rem'}>
+                        <Image boxSize={'200px'} src='/mint-gif.gif' alt='Sample Euphoria Club' style={{borderRadius: '0.5rem'}}/>
                     </Box>
                 </Center>
                 <Center>
-                    <Text fontSize='lg' >0 / 4420</Text>
+                    <Text fontSize='lg' style={{color: 'white'}}>{mintedQuantity} / 4420</Text>
                 </Center>
                 <Center>
-                    <Text fontSize='lg' >0.01 ETH</Text>
+                    <Text fontSize='lg' style={{color: 'white'}}>{mintCost} ETH</Text>
                 </Center>
                 <Box padding={'2rem'}>
-                    <Text fontSize='md' >Enter quantity</Text>
+                    <Text fontSize='md' style={{color: 'white'}}>Enter quantity</Text>
                     <NumberInput defaultValue={1} min={1} max={10}>
                         <NumberInputField />
                         <NumberInputStepper>
@@ -32,7 +37,7 @@ const MintBox = () => {
                         </NumberInputStepper>
                     </NumberInput>
                     <Center>
-                        <Button size='lg' bg={'#5A189A'} mt='1rem'>
+                        <Button size='lg' bg={'#5A189A'} mt='1rem' isFullWidth={true} style={{color: 'white'}}>
                             Mint
                         </Button>
                     </Center>

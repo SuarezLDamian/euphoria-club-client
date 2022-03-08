@@ -20,13 +20,16 @@ const Home: NextPage = () => {
 
       <NavBar/>
 
-      <Hero/>
+      <Box style={{backgroundImage:'/Artist.png'}}>
+        <Hero/>
 
-      <TheClub/>
+        <TheClub/>
 
-      <TheTeam/>
+        <TheTeam/>
 
-      <FaqAccordion/>
+        <FaqAccordion/>
+
+      </Box>
 
       <Footer/>
     </>

@@ -11,9 +11,12 @@ const Hero = () => {
                     <Heading as='h1' size='2xl' style={{color: 'white'}}>
                         Welcome to Euphoria Club!
                     </Heading>
-                    <p style={{margin: '5rem', fontSize: 30, color: 'white'}}>Euphoria Club is a collection of 4,420 randomly 
-                    generated NFTs minted on the Ethereum blockchain, 
-                    inspired by the acclaimed Euphoria Series.</p>
+
+                    <Heading as='h2' size='lg' style={{margin: '3rem', color: 'white'}}>
+                        Euphoria Club is a collection of 4,420 randomly 
+                        generated NFTs minted on the Ethereum blockchain, 
+                        inspired by the acclaimed Euphoria Series.
+                    </Heading>
                 </VStack>
             </Flex>
         </Box>

@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Heading, Grid, GridItem } from '@chakra-ui/react'
+import { Box, Center, Flex, Heading, Grid, GridItem, HStack } from '@chakra-ui/react'
 import TeamMember from '../team-member/TeamMember'
 
 const TheTeam = () => {
@@ -10,11 +10,11 @@ const TheTeam = () => {
                 </Heading>
             </Center>
             
-            <Center>
-                <Grid templateColumns='repeat(6, 1fr)' gap={6}>
-                    <TeamMember/>
-                    <TeamMember/>
-                </Grid>
+            <Center margin={'3rem'}>
+                <HStack spacing={'4rem'}>
+                    <TeamMember name='John B' position='Co-Founder and Artist' avatar='/artist-avatar.png'/>
+                    <TeamMember name='Damian S' position='Co-Founder and Developer' avatar='/developer-avatar.png'/>
+                </HStack>
             </Center>
 
         </Box>

@@ -25,7 +25,7 @@ const MintBox = ({mintedQuantity = 3, mintCost = 0.01 }: mintProps) => {
                 </VStack>
                 <Box >
                     <Text fontSize='md' style={{color: 'white'}}>Enter quantity</Text>
-                    <NumberInput defaultValue={1} min={1} max={10}>
+                    <NumberInput defaultValue={1} min={1} max={10} bg={'white'} style={{borderRadius: '0.5rem'}}>
                         <NumberInputField />
                         <NumberInputStepper>
                             <NumberIncrementStepper />

@@ -2,7 +2,7 @@ import { useEffect, useCallback, useState } from 'react';
 import { Button, useToast } from '@chakra-ui/react';
 import { useWeb3React } from '@web3-react/core'
 import { connector } from '../../config/web3/index'
-
+import truncateEthAddress from 'truncate-eth-address'
 
 const ConnectionButton = () => {
 
@@ -81,7 +81,7 @@ const ConnectionButton = () => {
             _hover={{
                 bg: 'euphoria.200',
             }}>
-            {account}
+            {account ? truncateEthAddress(account) : account}
         </Button>
         : 
         <Button

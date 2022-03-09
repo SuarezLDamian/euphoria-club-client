@@ -64,7 +64,7 @@ import {
   function Footer() {
     return (
       <Box
-        bg={useColorModeValue('gray.50', 'gray.900')}
+        bg={useColorModeValue('#7B2CBF', 'gray.900')}
         color={useColorModeValue('gray.700', 'gray.200')}>
         <Container
           as={Stack}
@@ -75,16 +75,16 @@ import {
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
           <Logo />
-          <Text>© 2022 made with ♥ by Korks Lab</Text>
+          <Text style={{color: 'white'}}>© 2022 made with ♥ by Korks Lab</Text>
           <Stack direction={'row'} spacing={6}>
-            <SocialButton label={'Twitter'} href={'#'}>
-              <FaTwitter />
+            <SocialButton label={'Twitter'} href={'https://twitter.com/euphorianftclub'}>
+              <FaTwitter style={{color: 'white'}}/>
             </SocialButton>
-            <SocialButton label={'YouTube'} href={'#'}>
-              <FaDiscord />
+            <SocialButton label={'Discord'} href={'https://twitter.com/euphorianftclub'}>
+              <FaDiscord style={{color: 'white'}}/>
             </SocialButton>
-            <SocialButton label={'Instagram'} href={'#'}>
-              <FaInstagram />
+            <SocialButton label={'Instagram'} href={'https://twitter.com/euphorianftclub'}>
+              <FaInstagram style={{color: 'white'}}/>
             </SocialButton>
           </Stack>
         </Container>

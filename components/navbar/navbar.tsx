@@ -1,4 +1,6 @@
-import { ReactNode, useEffect, useCallback, useState } from 'react';
+import { ReactNode } from 'react';
+import Image from 'next/image'
+import Logo from "/public/logo.svg"
 import {
   Box,
   Flex,
@@ -17,8 +19,6 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { useWeb3React } from '@web3-react/core'
-import { connector } from '../../config/web3/index'
 import ConnectionButton from '../connection-button/ConnectionButton';
 
 const Links = ['Twitter', 'Discord', 'Opensea'];
@@ -52,7 +52,8 @@ function NavBar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box style={{color: 'white'}}>EUPHORIA CLUB NFT</Box>
+            {/* <Logo/> */}
+            <Image src={Logo} alt='logo'/>
             <HStack
               as={'nav'}
               spacing={4}

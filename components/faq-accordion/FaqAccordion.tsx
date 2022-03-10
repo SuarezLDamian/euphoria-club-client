@@ -15,7 +15,7 @@ const FaqAccordion = () => {
         <Box style={{background: '#5A189A', padding: '3rem'}}>
             <Center>
                 
-            <Heading as='h1' size='2xl' style={{color: 'white', marginBottom: '3rem'}}>
+            <Heading as='h2' size='2xl' style={{color: 'white', marginBottom: '3rem'}}>
                 FAQ
             </Heading>
             </Center>

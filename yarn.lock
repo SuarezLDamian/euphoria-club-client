@@ -1871,10 +1871,10 @@
     "@ethersproject/properties" "^5.5.0"
     "@ethersproject/strings" "^5.5.0"
 
-"@fontsource/lato@^4.5.2":
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.5.2.tgz#88b63c8643d91bf96b82050cb0321ea9de406ae3"
-  integrity sha512-4HvkoFOXI31LyZHZWCl84ESQQ0XIcQWqdfBVQEUAYarQsFSqCEby255o3n/sWPJZjWHJf6eJqhvFl5WgGYj1bA==
+"@fontsource/lexend@^4.5.5":
+  version "4.5.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/lexend/-/lexend-4.5.5.tgz#53b6b6dedb5bcb2d634e33eb31e48f8d1bb24df8"
+  integrity sha512-FUIPeK1aB85elx62/gwxsQGODSychVNt/5ark1HhVKhewRJHDX4BrzFsQ/H8A7jxWQeVjycoNyVCtdCsIygbzw==
 
 "@fontsource/open-sans@^4.5.5":
   version "4.5.5"

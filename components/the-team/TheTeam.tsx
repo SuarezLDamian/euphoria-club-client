@@ -5,7 +5,7 @@ const TheTeam = () => {
     return (
         <Box style={{background: '#7B2CBF', padding: '3rem'}}>
             <Center>                
-                <Heading as='h1' size='2xl' style={{color: 'white'}}>
+                <Heading as='h2' size='2xl' style={{color: 'white'}}>
                     The Team
                 </Heading>
             </Center>

@@ -11,8 +11,8 @@ const theme = extendTheme({
     },
   },
   fonts: {
+    heading: "Lexend, sans-serif",
     body: "Open Sans, sans-serif",
-    heading: "Lato, sans-serif",
   },
 })
 

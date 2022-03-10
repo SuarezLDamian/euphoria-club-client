@@ -9,7 +9,7 @@ const Hero = () => {
                 <Center>
                     <MintBox/>
                 </Center>
-                <VStack alignItems={'center'} spacing={'3rem'}>
+                <VStack spacing={'3rem'}>
                     <Heading as='h1' size='4xl' style={{color: 'white'}}>
                         WELCOME TO EUPHORIA CLUB!
                     </Heading>

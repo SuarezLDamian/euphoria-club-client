@@ -13,24 +13,26 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Euphoria Club NFT</title>
+        <title>Euphoria Club | NFT Collection</title>
         <meta name="Euphoria Club" content="Euphoria series inspired NFT collection" />
         <link rel="icon" href="/eth-favicon.ico" />
       </Head>
 
       <Box minW='40rem'>
-      <NavBar/>
+        <NavBar/>
 
         <Hero/>
 
+        <div id="the-club"></div>
         <TheClub/>
 
+        <div id="the-team"></div>
         <TheTeam/>
 
+        <div id="faq"></div>
         <FaqAccordion/>
 
-
-      <Footer/>
+        <Footer/>
       </Box>
     </>
   )

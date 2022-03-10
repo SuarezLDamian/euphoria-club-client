@@ -17,6 +17,7 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Spacer
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import ConnectionButton from '../connection-button/ConnectionButton';
@@ -54,20 +55,14 @@ function NavBar() {
           <HStack spacing={8} alignItems={'center'}>
             {/* <Logo/> */}
             <Image src={Logo} alt='logo'/>
+                {/* <Spacer/> */}
             <HStack
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
-              {/* {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))} */}
-                {/* <NavLink href='twitter.com/elonmusk'>Hola</NavLink> */}
-                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer' style={{color: 'white'}}>The Club</a>
-                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer' style={{color: 'white'}}>The Team</a>
-                <a href='https://twitter.com/euphorianftclub' target='_blank' rel='noreferrer' style={{color: 'white'}}>FAQ</a>
-                {/* <NavLink >{link}</NavLink>
-                <NavLink >{link}</NavLink> */}
-
+                <Link href="#the-club"><a style={{color: 'white'}}>The Club</a></Link>
+                <Link href="#the-team"><a style={{color: 'white'}}>The Team</a></Link>
+                <Link href="#faq"><a style={{color: 'white'}}>FAQ</a></Link>
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
@@ -78,9 +73,9 @@ function NavBar() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4} style={{color: 'white'}}>
-              {Links.map((link) => (
-                <NavLink  key={link}>{link}</NavLink>
-              ))}
+              <Link href="#the-club"><a style={{color: 'white'}}>The Club</a></Link>
+              <Link href="#the-team"><a style={{color: 'white'}}>The Team</a></Link>
+              <Link href="#faq"><a style={{color: 'white'}}>FAQ</a></Link>
             </Stack>
               {/* <ConnectionButton /> */}
           </Box>

@@ -16,7 +16,6 @@ const TheTeam = () => {
                     <TeamMember name='Damian S' position='Co-Founder and Developer' avatar='/developer-avatar.png'/>
                 </Stack>
             </Center>
-
         </Box>
     )
 }

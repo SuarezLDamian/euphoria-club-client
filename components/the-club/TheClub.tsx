@@ -3,7 +3,7 @@ import { Box, Center, Heading, Stack, Text, Divider } from '@chakra-ui/react'
 const TheClub = () => {
     
     return (
-        <Box style={{background: '#7B2CBF', padding: '3rem'}}>
+        <Box style={{background: '#7B2CBF', padding: '6rem'}}>
             <Center>                
                 <Heading as='h2' size='2xl' style={{color: 'white'}}>
                     The Club
@@ -25,8 +25,7 @@ const TheClub = () => {
                     </Center>
                     <Text fontSize='2xl' align='center' style={{color: 'white'}}>Once the 3rd Season of the Series has started, all Euphoria Club NFT holders will be able to access to a free miniature of the N°2 collection.</Text>
                 </Stack>
-            </Center>
-            
+            </Center>            
         </Box>
     )
 }

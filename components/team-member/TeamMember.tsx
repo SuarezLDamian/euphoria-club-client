@@ -1,4 +1,5 @@
 import { Avatar, Text, Box, HStack, VStack } from '@chakra-ui/react'
+import { FaTwitter } from 'react-icons/fa';
 
 interface memberProps {
     name?: string,
@@ -15,6 +16,7 @@ const TeamMember = (member: memberProps) => {
                 <VStack>
                     <Text fontSize='2xl' style={{color: 'white'}}>{member.name}</Text>
                     <Text fontSize='lg' style={{color: 'white'}}>{member.position}</Text>
+                    <FaTwitter style={{color: 'white'}}/>
                 </VStack>
             </HStack>
         </Box>

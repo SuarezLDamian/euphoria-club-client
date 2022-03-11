@@ -12,7 +12,7 @@ import {
 const FaqAccordion = () => {
 
     return (
-        <Box style={{background: '#5A189A', padding: '3rem'}}>
+        <Box backgroundImage={'/faq-background.svg'} style={{padding: '6rem'}}>
             <Center>
                 
             <Heading as='h2' size='2xl' style={{color: 'white', marginBottom: '3rem'}}>

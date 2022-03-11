@@ -57,16 +57,16 @@ import {
           spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
-          <Image src={Logo} alt='logo'/>
+          <Image src={Logo} alt='footer logo'/>
           <Text style={{color: 'white'}}>© 2022 made with ♥ by Korks Lab</Text>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'https://twitter.com/euphorianftclub'}>
               <FaTwitter style={{color: 'white'}}/>
             </SocialButton>
-            <SocialButton label={'Discord'} href={'https://twitter.com/euphorianftclub'}>
+            <SocialButton label={'Discord'} href={'https://discord.gg/pEmvhJ5e8H'}>
               <FaDiscord style={{color: 'white'}}/>
             </SocialButton>
-            <SocialButton label={'Instagram'} href={'https://twitter.com/euphorianftclub'}>
+            <SocialButton label={'Instagram'} href={'https://www.instagram.com/euphoriaclubnfts/'}>
               <FaInstagram style={{color: 'white'}}/>
             </SocialButton>
           </Stack>

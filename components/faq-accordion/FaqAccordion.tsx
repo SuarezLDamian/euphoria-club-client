@@ -25,16 +25,13 @@ const FaqAccordion = () => {
                     <h2>
                     <AccordionButton>
                         <Box flex='1' textAlign='left' style={{color: 'white'}}>
-                        What is Euphoria Club?
+                        1. WHAT IS EUPHORIA CLUB ?
                         </Box>
                         <AccordionIcon />
                     </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.
+                    Euphoria Clubbers are randomly generated, non-fungible tokens, also known as an &quot;NFT.&quot; There is 4420 different Euphoria Clubbers and each Character is completely unique. No two Euphoria Clubbers are the same. The Euphoria Clubbers were generated from a smart contract using over 150 different hand drawn traits. Euphoria Clubbers are minted, stored, and traded on the Ethereum blockchain.
                     </AccordionPanel>
                 </AccordionItem>
 
@@ -42,16 +39,13 @@ const FaqAccordion = () => {
                     <h2>
                     <AccordionButton>
                         <Box flex='1' textAlign='left' style={{color: 'white'}}>
-                        What is Euphoria Club?
+                        2. HOW DO I PURCHASE A CLUBBER ?
                         </Box>
                         <AccordionIcon />
                     </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.
+                    You can mint an Euphoria Clubber from this website or purchase it from our verified collection on the OpenSea marketplace.
                     </AccordionPanel>
                 </AccordionItem>
 
@@ -59,16 +53,27 @@ const FaqAccordion = () => {
                     <h2>
                     <AccordionButton>
                         <Box flex='1' textAlign='left' style={{color: 'white'}}>
-                        What is Euphoria Club?
+                        3. WHEN WILL EUPHORIA CLUBBERS LAUNCH ?
                         </Box>
                         <AccordionIcon />
                     </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.
+                    The launch date is tbd.
+                    </AccordionPanel>
+                </AccordionItem>
+
+                <AccordionItem>
+                    <h2>
+                    <AccordionButton>
+                        <Box flex='1' textAlign='left' style={{color: 'white'}}>
+                        4. HOW MANY EUPHORIA CLUBBERS EXIST ?
+                        </Box>
+                        <AccordionIcon />
+                    </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4}>
+                    4,420 Euphoria Clubbers.
                     </AccordionPanel>
                 </AccordionItem>
                 
@@ -76,16 +81,13 @@ const FaqAccordion = () => {
                     <h2>
                     <AccordionButton>
                         <Box flex='1' textAlign='left'style={{color: 'white'}}>
-                        Qué es lo que quiere la chola?
+                        5. ARE SOME EUPHORIA CLUBBERS MORE RARE THAN OTHERS ?
                         </Box>
                         <AccordionIcon />
                     </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.
+                    Every Euphoria Clubber has unique traits/attributes, but some traits are more rare than others. For example, 396 Euphoria Clubbers have a Pink Background, but only 22 have Tears. You can see the traits for an Euphoria Clubber under &quot;properties&quot; on OpenSea.
                     </AccordionPanel>
                 </AccordionItem>
             </Accordion>

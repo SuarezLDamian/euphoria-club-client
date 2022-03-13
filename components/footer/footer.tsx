@@ -47,7 +47,7 @@ import {
   function Footer() {
     return (
       <Box
-        bg={useColorModeValue('#7B2CBF', 'gray.900')}
+        bg={useColorModeValue('#480C83', 'gray.900')}
         color={useColorModeValue('gray.700', 'gray.200')}>
         <Container
           as={Stack}

@@ -3,7 +3,7 @@ import TeamMember from '../team-member/TeamMember'
 
 const TheTeam = () => {
     return (
-        <Box style={{background: '#7B2CBF', padding: '3rem'}}>
+        <Box style={{background: '#5A189A', padding: '3rem'}}>
             <Center>                
                 <Heading as='h2' size='2xl' style={{color: 'white'}}>
                     The Team

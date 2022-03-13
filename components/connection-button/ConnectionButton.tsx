@@ -76,7 +76,7 @@ const ConnectionButton = () => {
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'euphoria.100'}
+            bg={'#6F1EBD'}
             onClick={disconnect}
             _hover={{
                 bg: 'euphoria.200',

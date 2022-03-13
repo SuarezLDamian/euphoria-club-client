@@ -17,7 +17,8 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
-  Spacer
+  Spacer,
+  Container
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import ConnectionButton from '../connection-button/ConnectionButton';
@@ -43,7 +44,8 @@ function NavBar() {
 
   return (
     <>
-      <Box bg={useColorModeValue('#7B2CBF', 'gray.900')} px={4}>
+      <Box minH={'4rem'} bg={useColorModeValue('#48137B', 'gray.900')} px={4}>
+      <Container maxW={'8xl'}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -80,6 +82,7 @@ function NavBar() {
               {/* <ConnectionButton /> */}
           </Box>
         ) : null}
+        </Container>
       </Box>
     </>
   );

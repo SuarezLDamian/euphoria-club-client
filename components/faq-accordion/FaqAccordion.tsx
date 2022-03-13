@@ -6,13 +6,17 @@ import {
     AccordionIcon,
     Box,
     Heading,
-    Center
+    Center, 
+    Container
   } from '@chakra-ui/react'
+import Image from 'next/image'
 
 const FaqAccordion = () => {
 
     return (
         <Box backgroundImage={'/faq-background.svg'} style={{padding: '6rem'}}>
+            {/* <Image src={'/faq-background.svg'} alt='hero-background'></Image> */}
+            <Container maxW={'6xl'}>
             <Center>
                 
             <Heading as='h2' size='2xl' style={{color: 'white', marginBottom: '3rem'}}>
@@ -91,6 +95,7 @@ const FaqAccordion = () => {
                     </AccordionPanel>
                 </AccordionItem>
             </Accordion>
+            </Container>
         </Box>
     )
 }

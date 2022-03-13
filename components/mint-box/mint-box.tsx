@@ -14,7 +14,7 @@ interface mintProps {
 
 const MintBox = ({mintedQuantity = 3, mintCost = 0.01 }: mintProps) => {
     return (
-        <Box padding={'2rem'} minW='xs' maxW='lg' maxH='33rem' borderWidth='3px' borderRadius='lg' style={{background: '#7B2CBF'}}>
+        <Box padding={'2rem'} minW='xs' maxW='lg' maxH='33rem' borderWidth='3px' borderRadius='lg' style={{background: '#48137B'}}>
             <VStack spacing={1}>
                 <Center>
                     <Image boxSize={'200px'} src='/mint-gif.gif' alt='Sample Euphoria Club' style={{borderRadius: '0.5rem'}}/>

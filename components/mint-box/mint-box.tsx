@@ -33,8 +33,8 @@ const MintBox = ({mintedQuantity = 3, mintCost = 0.01 }: mintProps) => {
                         </NumberInputStepper>
                     </NumberInput>
                     <Center>
-                        <Button size='lg' bg={'#5A189A'} mt='1rem' isFullWidth={true} style={{color: 'white'}}>
-                            Mint
+                        <Button size='lg' bg={'#5A189A'} mt='1rem' isFullWidth={true} style={{ fontSize: '30px',color: 'white'}}>
+                            MINT
                         </Button>
                     </Center>
                 </Box>

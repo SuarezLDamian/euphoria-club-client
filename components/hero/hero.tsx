@@ -10,7 +10,7 @@ const Hero = () => {
     return (
         <>
         {/* <Image src={'/hero-backgroundd.svg'} alt='hero-background' layout='fill'></Image> */}
-        <Box style={{ background: '#5A179A', padding: '6rem'}}>
+        <Box backgroundImage={'/hero-background.svg'} style={{ padding: '6rem'}}>
             <Container maxW={'6xl'}>
                 <Stack direction={['column', 'row']} spacing={'4rem'}>
                     <Center>

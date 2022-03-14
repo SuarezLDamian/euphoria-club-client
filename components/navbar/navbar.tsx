@@ -1,6 +1,4 @@
 import { ReactNode } from 'react';
-import Image from 'next/image'
-import Logo from "/public/logo.svg"
 import {
   Box,
   Flex,
@@ -18,7 +16,8 @@ import {
   useColorModeValue,
   Stack,
   Spacer,
-  Container
+  Container, 
+  Image
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import ConnectionButton from '../connection-button/ConnectionButton';
@@ -56,19 +55,19 @@ function NavBar() {
           />
           <HStack spacing={8} alignItems={'center'}>
             {/* <Logo/> */}
-            <Image src={Logo} alt='logo'/>
+          <Image src='/logo.svg' alt='logo'/>
                 {/* <Spacer/> */}
-            <HStack
-              as={'nav'}
-              spacing={4}
-              display={{ base: 'none', md: 'flex' }}>
-                <Link href="#the-club"><a style={{color: 'white'}}>The Club</a></Link>
-                <Link href="#the-team"><a style={{color: 'white'}}>The Team</a></Link>
-                <Link href="#faq"><a style={{color: 'white'}}>FAQ</a></Link>
-            </HStack>
           </HStack>
           <Flex alignItems={'center'}>
-            <ConnectionButton />
+            <HStack
+              as={'nav'}
+              spacing={8}
+              display={{ base: 'none', md: 'flex' }}>
+                <Link href="#the-club"><a style={{color: 'white'}}>The Club</a></Link>
+                <Link href="#the-team"><a style={{color: 'white'}}>The Team</a></Link>  
+                <Link href="#faq"><a style={{color: 'white'}}>FAQ</a></Link>
+                <ConnectionButton />
+            </HStack>
           </Flex>
         </Flex>
 

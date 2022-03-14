@@ -20,7 +20,7 @@ const FaqAccordion = () => {
             <Container maxW={'6xl'}>
             <Center>
                 
-            <Heading as='h2' size='2xl' style={{color: 'white', marginBottom: '3rem'}}>
+            <Heading as='h2' size='3xl' style={{color: 'white', marginBottom: '3rem'}}>
                 FAQ
             </Heading>
             </Center>

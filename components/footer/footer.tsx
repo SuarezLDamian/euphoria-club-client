@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import Image from 'next/image'
 import {
     Box,
     chakra,
@@ -9,6 +8,7 @@ import {
     Text,
     useColorModeValue,
     VisuallyHidden,
+    Image
   } from '@chakra-ui/react';
   import { FaInstagram, FaTwitter, FaDiscord } from 'react-icons/fa';
   import Logo from "/public/logo.svg"
@@ -57,7 +57,7 @@ import {
           spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
-          <Image src={Logo} alt='footer logo'/>
+          <Image src='/logo.svg' alt='footer logo'/>
           <Text style={{color: 'white'}}>© 2022 made with ♥ by Korks Lab</Text>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'https://twitter.com/euphorianftclub'}>

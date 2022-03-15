@@ -13,10 +13,10 @@ const TeamMember = (member: memberProps) => {
         <Box>
             <HStack>
                 <Image boxSize='8rem' borderRadius='full' src={member.avatar} alt='team member'/>
-                <VStack align='center'>
-                    <Text fontSize='2xl' style={{color: 'white'}}>{member.name}</Text>
+                <VStack align='center' p={'1rem'}>
+                    <Text fontSize='2xl' style={{color: 'white', fontWeight: 'bold'}}>{member.name}</Text>
                     <Text fontSize='lg' style={{color: 'white'}}>{member.position}</Text>
-                    <FaTwitter style={{color: 'white'}}/>
+                    <FaTwitter style={{color: 'white', marginTop: '1rem'}}/>
                 </VStack>
             </HStack>
         </Box>

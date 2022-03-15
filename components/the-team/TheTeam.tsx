@@ -10,8 +10,8 @@ const TheTeam = () => {
                 </Heading>
             </Center>
             
-            <Center margin={'3rem'}>
-                <Stack direction={['column', 'row']} spacing={'6rem'}>
+            <Center marginTop={'8rem'}>
+                <Stack direction={['column', 'row']} spacing={'12rem'}>
                     <TeamMember name='John B' position='Co-Founder & Artist' avatar='/artist-avatar.png'/>
                     <TeamMember name='Damian S' position='Co-Founder & Developer' avatar='/developer-avatar.png'/>
                 </Stack>

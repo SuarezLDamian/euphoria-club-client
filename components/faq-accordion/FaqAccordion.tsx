@@ -39,7 +39,7 @@ const FaqAccordion = () => {
                     </h2>
                     <AccordionPanel p={'2rem'} style={{color: 'white'}}>
                         <Text fontSize='lg' style={{color: 'white'}}>
-                        Euphoria Clubbers are randomly generated, non-fungible tokens, also known as an &quot;NFT.&quot; There is 4420 different Euphoria Clubbers and each Character is completely unique. No two Euphoria Clubbers are the same. The Euphoria Clubbers were generated from a smart contract using over 150 different hand drawn traits. Euphoria Clubbers are minted, stored, and traded on the Ethereum blockchain.
+                        Euphoria Clubbers are randomly generated, non-fungible tokens, also known as an &quot;NFT.&quot; There is 4420 different Euphoria Clubbers and each Character is completely unique. No two Euphoria Clubbers are the same. The Euphoria Clubbers were generated from a smart contract using over 90 different hand drawn traits. Euphoria Clubbers are minted, stored, and traded on the Ethereum blockchain.
                         </Text>
                     </AccordionPanel>
                 </AccordionItem>

@@ -22,8 +22,6 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import ConnectionButton from '../connection-button/ConnectionButton';
 
-const Links = ['Twitter', 'Discord', 'Opensea'];
-
 const NavLink = ({ children }: { children: ReactNode }) => (
   <Link
     px={2}
@@ -54,18 +52,21 @@ function NavBar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            {/* <Logo/> */}
           <Image src='/logo.svg' alt='logo'/>
-                {/* <Spacer/> */}
           </HStack>
           <Flex alignItems={'center'}>
             <HStack
               as={'nav'}
               spacing={8}
               display={{ base: 'none', md: 'flex' }}>
-                <Link href="#the-club"><a style={{color: 'white'}}>The Club</a></Link>
-                <Link href="#the-team"><a style={{color: 'white'}}>The Team</a></Link>  
-                <Link href="#faq"><a style={{color: 'white'}}>FAQ</a></Link>
+                <HStack
+                  spacing={8}
+                  marginRight={'2rem'}
+                  display={{ base: 'none', md: 'flex' }}>
+                  <Link href="#the-club"><a style={{color: 'white', fontWeight: 'bold'}}>The Club</a></Link>
+                  <Link href="#the-team"><a style={{color: 'white', fontWeight: 'bold'}}>The Team</a></Link>
+                  <Link href="#faq"><a style={{color: 'white', fontWeight: 'bold'}}>FAQ</a></Link>
+                </HStack>
                 <ConnectionButton />
             </HStack>
           </Flex>

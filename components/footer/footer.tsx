@@ -58,7 +58,7 @@ import {
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
           <Image src='/logo.svg' alt='footer logo'/>
-          <Text style={{color: 'white'}}>© 2022 made with ♥ by Korks Lab</Text>
+          <Text style={{color: 'white'}}>©2022 Euphoria Club NFT. All rights reserved.</Text>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'https://twitter.com/euphorianftclub'}>
               <FaTwitter style={{color: 'white'}}/>

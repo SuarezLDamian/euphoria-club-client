@@ -69,6 +69,7 @@ const SocialButton = ({
         alignItems={'center'}
         justifyContent={'center'}
         transition={'background 0.3s ease'}
+        target={'_blank'}
         _hover={{
           bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
         }}>

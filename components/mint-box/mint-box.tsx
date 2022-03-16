@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Box, Image, Button, Text, Center, VStack, StackDivider } from "@chakra-ui/react";
 import {
     NumberInput,
@@ -6,13 +7,17 @@ import {
     NumberIncrementStepper,
     NumberDecrementStepper,
   } from '@chakra-ui/react';
+import Countdown from 'react-countdown';
 
 interface mintProps {
     mintedQuantity?: number,
     mintCost?: number
 }
 
-const MintBox = ({mintedQuantity = 3, mintCost = 0.01 }: mintProps) => {
+const MintBox = ({mintedQuantity = 0, mintCost = 0.01 }: mintProps) => {
+
+    const [ disabled, setDisabled ] = useState(true)
+
     return (
         <Box padding={'2rem'} minW='xs' maxW='lg' maxH='33rem' borderWidth='3px' borderRadius='lg' style={{background: '#48137B'}}>
             <VStack spacing={1}>
@@ -33,8 +38,16 @@ const MintBox = ({mintedQuantity = 3, mintCost = 0.01 }: mintProps) => {
                         </NumberInputStepper>
                     </NumberInput>
                     <Center>
-                        <Button size='lg' bg={'#5A189A'} mt='1rem' isFullWidth={true} style={{ fontSize: '30px',color: 'white'}}>
-                            MINT
+                        <Button
+                            disabled={disabled? true : false} 
+                            size='lg' 
+                            bg={'#5A189A'} 
+                            mt='1rem' 
+                            isFullWidth={true} 
+                            style={{ fontSize: '30px',color: 'white'}}>
+                            <Countdown date='2022-03-31T12:00:00' onComplete={() => setDisabled(false)}>
+                                <Text>MINT</Text>
+                            </Countdown>
                         </Button>
                     </Center>
                 </Box>

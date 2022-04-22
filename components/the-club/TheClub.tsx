@@ -1,5 +1,5 @@
 import { Box, Center, Heading, Stack, Text, Divider } from '@chakra-ui/react'
-import Carousel from '../carousel/Carousel'
+// import Carousel from '../carousel/Carousel'
 import topwave from '/public/the-club-top-wave.svg'
 
 const TheClub = () => {
@@ -13,9 +13,9 @@ const TheClub = () => {
             </Center>
             <Center>
                 <Stack spacing={'2rem'} marginTop='2rem' maxW={'6xl'}>
-                    <Center>
+                    {/* <Center>
                         <Carousel/>
-                    </Center>
+                    </Center> */}
                     <Text fontSize='2xl' align='center' style={{color: 'white'}}>Don&apos;t miss the opportunity to become part of the community and to mint a new member of the Club!, or if you are one of those lucky ones, to mint an official Cast member with your official traits!</Text>
                     <Center height='2rem'>
                         <Divider borderWidth={'3px'} borderRadius={'xl'} orientation='vertical' />

@@ -4,9 +4,6 @@ import Countdown from 'react-countdown';
 import { ethers } from 'ethers'
 const { abi } = require("../../contracts/EuphoriaClub.json");
 
-const { API_KEY, privateKey } = require('../../secrets.json');
-
-
 const MintButton = (quantity: any) => {
 
     const NETWORK_ID = 4
@@ -16,11 +13,6 @@ const MintButton = (quantity: any) => {
     var MAX_PRESALE_SUPPLY = null
 
     const toast = useToast()
-
-    // require('dotenv').config();
-    // const API_URL = process.env.API_URL;
-    // const PUBLIC_KEY = process.env.PUBLIC_KEY;
-    // const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
     const [stateProvider, setStateProvider] = useState(null)
     const [stateSigner, setStateSigner] = useState(null)
@@ -35,9 +27,7 @@ const MintButton = (quantity: any) => {
     }
 
     const mintHandler = async () => {
-      // const wallet = ethers.Wallet.fromMnemonic(privateKey)
       try {
-
       // conexión
       const provider = new ethers.providers.Web3Provider(window.ethereum)
       setStateProvider(provider);

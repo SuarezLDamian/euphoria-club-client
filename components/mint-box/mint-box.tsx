@@ -11,7 +11,6 @@ import Countdown from 'react-countdown';
 import MintButton from '../mint-button/mint-button'
 import { useWeb3React } from '@web3-react/core'
 import { ethers } from 'ethers'
-const { API_KEY, privateKey } = require('../../secrets.json');
 const { abi } = require("../../contracts/EuphoriaClub.json");
 
 interface mintProps {

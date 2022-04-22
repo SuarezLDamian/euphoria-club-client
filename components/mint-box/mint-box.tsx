@@ -50,22 +50,22 @@ const MintBox = ({mintedQuantity = 0, mintCost = 0.01 }: mintProps) => {
 
     const updateEthers = useCallback( async () => {
         console.log("Se actualiza ethers")
-        if(window.ethereum) {
+        if(!window.ethereum) {
+            toast({
+                title: 'Please Install MetaMask.',
+                description: "You need a wallet to access web 3.0",
+                status: 'error',
+                duration: 15000,
+                isClosable: true,
+            })
+        }
+        else {
             const provider = new ethers.providers.Web3Provider(window.ethereum)
             setStateProvider(provider);
             const signer = provider.getSigner()
             setStateSigner(signer);
             let contract: any = new ethers.Contract(contractAddress, abi, signer);
             setStateContract(contract);
-        }
-        else {        
-            toast({
-                title: 'Please Install MetaMask.',
-                description: "You need a wallet to access web 3.0",
-                status: 'error',
-                duration: 9000,
-                isClosable: true,
-            })
         }
     }, [toast])
     

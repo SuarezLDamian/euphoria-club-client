@@ -8,9 +8,13 @@ import NavBar from '../components/navbar/navbar'
 import Hero from '../components/hero/hero'
 import TheClub from '../components/the-club/TheClub'
 import TheTeam from '../components/the-team/TheTeam'
+import useMounted from '../hooks/usemounted'
 
 const Home: NextPage = () => {
+  const mounted = useMounted()
+
   return (
+    mounted &&
     <>
       <Head>
         <title>Euphoria Club | NFT Collection</title>

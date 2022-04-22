@@ -63,9 +63,9 @@ function NavBar() {
                   spacing={8}
                   marginRight={'2rem'}
                   display={{ base: 'none', md: 'flex' }}>
-                  <Link href="#the-club"><a style={{color: 'white', fontWeight: 'bold'}}>The Club</a></Link>
-                  <Link href="#the-team"><a style={{color: 'white', fontWeight: 'bold'}}>The Team</a></Link>
-                  <Link href="#faq"><a style={{color: 'white', fontWeight: 'bold'}}>FAQ</a></Link>
+                  <Link href="#the-club" style={{color: 'white', fontWeight: 'bold'}}>The Club</Link>
+                  <Link href="#the-team" style={{color: 'white', fontWeight: 'bold'}}>The Team</Link>
+                  <Link href="#faq" style={{color: 'white', fontWeight: 'bold'}}>FAQ</Link>
                 </HStack>
                 <ConnectionButton />
             </HStack>
@@ -75,9 +75,9 @@ function NavBar() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4} style={{color: 'white'}}>
-              <Link href="#the-club"><a style={{color: 'white'}}>The Club</a></Link>
-              <Link href="#the-team"><a style={{color: 'white'}}>The Team</a></Link>
-              <Link href="#faq"><a style={{color: 'white'}}>FAQ</a></Link>
+              <Link href="#the-club" style={{color: 'white', fontWeight: 'bold'}}>The Club</Link>
+              <Link href="#the-team" style={{color: 'white', fontWeight: 'bold'}}>The Team</Link>
+              <Link href="#faq" style={{color: 'white', fontWeight: 'bold'}}>FAQ</Link>
             </Stack>
               {/* <ConnectionButton /> */}
           </Box>

@@ -13,12 +13,12 @@ import { useWeb3React } from '@web3-react/core'
 import { ethers } from 'ethers'
 const { abi } = require("../../contracts/EuphoriaClub.json");
 
-interface mintProps {
-    mintedQuantity?: number,
-    mintCost?: number
-}
+// interface mintProps {
+//     mintedQuantity?: number,
+//     mintCost?: number
+// }
 
-const MintBox = ({mintedQuantity = 0, mintCost = 0.01 }: mintProps) => {
+const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
 
     const [ disabled, setDisabled ] = useState(true)
 
@@ -34,10 +34,12 @@ const MintBox = ({mintedQuantity = 0, mintCost = 0.01 }: mintProps) => {
 
     const toast = useToast()
 
-    const handleChange = (value: any) => setQuantity(value)
+    const handleChange = (value) => setQuantity(value)
 
     const contractAddress = "0x2643E245Ab5D174B6e012D10c242FF2B309e746D";
     const network = "rinkeby"
+
+    let window;
 
     const {
         activate,
@@ -64,10 +66,10 @@ const MintBox = ({mintedQuantity = 0, mintCost = 0.01 }: mintProps) => {
             setStateProvider(provider);
             const signer = provider.getSigner()
             setStateSigner(signer);
-            let contract: any = new ethers.Contract(contractAddress, abi, signer);
+            let contract = new ethers.Contract(contractAddress, abi, signer);
             setStateContract(contract);
         }
-    }, [toast])
+    }, [toast, window.ethereum])
     
 
     const getValues = useCallback( async () => {

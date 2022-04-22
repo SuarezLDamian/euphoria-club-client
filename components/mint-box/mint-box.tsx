@@ -34,12 +34,10 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
 
     const toast = useToast()
 
-    const handleChange = (value) => setQuantity(value)
+    const handleChange = (value: any) => setQuantity(value)
 
     const contractAddress = "0x2643E245Ab5D174B6e012D10c242FF2B309e746D";
     const network = "rinkeby"
-
-    let window;
 
     const {
         activate,
@@ -69,7 +67,7 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
             let contract = new ethers.Contract(contractAddress, abi, signer);
             setStateContract(contract);
         }
-    }, [toast, window.ethereum])
+    }, [toast])
     
 
     const getValues = useCallback( async () => {

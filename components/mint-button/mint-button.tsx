@@ -5,9 +5,7 @@ import { useWeb3React } from '@web3-react/core'
 import { ethers } from 'ethers'
 const { abi } = require("../../contracts/EuphoriaClub.json");
 
-
-
-const MintButton = (quantity) => {
+const MintButton = (quantity: any) => {
 
     const {
         activate,
@@ -42,7 +40,7 @@ const MintButton = (quantity) => {
         await provider.send("eth_requestAccounts", []); // enviar pop-up en Metamask
         const signer = provider.getSigner()
         setStateSigner(signer);
-        const contract = new ethers.Contract(contractAddress, abi, signer);
+        const contract: any = new ethers.Contract(contractAddress, abi, signer);
         setStateContract(contract);
 
         // validaciones de state

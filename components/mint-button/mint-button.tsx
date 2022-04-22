@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Text } from '@chakra-ui/react'
+import { Button, Text, useToast } from '@chakra-ui/react'
 import Countdown from 'react-countdown';
 import { ethers } from 'ethers'
 const { abi } = require("../../contracts/EuphoriaClub.json");
@@ -14,6 +14,8 @@ const MintButton = (quantity: any) => {
     var PRESALE_PRICE = null
     var MAX_SUPPLY = null
     var MAX_PRESALE_SUPPLY = null
+
+    const toast = useToast()
 
     // require('dotenv').config();
     // const API_URL = process.env.API_URL;
@@ -33,8 +35,8 @@ const MintButton = (quantity: any) => {
     }
 
     const mintHandler = async () => {
-      console.log("Se actualiza ethers")
       // const wallet = ethers.Wallet.fromMnemonic(privateKey)
+      try {
 
       // conexión
       const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -50,8 +52,6 @@ const MintButton = (quantity: any) => {
       console.log("el contract de useState es:", stateContract)
       console.log("el contract sigue siendo:", contract)
       console.log("el signer de useState es:", stateSigner)
-      const reserved = await contract.reserved();
-      console.log("[mint-button]La cantidad reservada es:", reserved.toNumber())
       const isPresaleActive = await contract.presaleActive();
       console.log("[mint-button]La presale está activa?:", isPresaleActive)
       
@@ -63,6 +63,16 @@ const MintButton = (quantity: any) => {
       const tx = await contract.mintPresale(tokenQuantity, { value: ethers.utils.parseEther(etherQuantity.toString()) })
       console.log("Transacción:", tx)
       await tx.wait()
+      } 
+      catch (error) {
+        toast({
+          title: 'Transaction cancelled.',
+          description: "Please try again.",
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+      })
+      }
     }
 
     // const [ disabled, setDisabled ] = useState(true)

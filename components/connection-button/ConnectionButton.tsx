@@ -21,14 +21,16 @@ const ConnectionButton = () => {
     } = useWeb3React()
 
     const showSuccessToast = useCallback(() => {
-        toast({
-            title: 'Wallet connected.',
-            description: "You are now ready to join the club!.",
-            status: 'success',
-            duration: 9000,
-            isClosable: true,
-        })
-    }, [toast])
+        if (active) {
+                toast({
+                    title: 'Wallet connected.',
+                    description: "You are now ready to join the club!.",
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                })
+            }
+        }, [toast, active])
 
     const showErrorToast = useCallback (() => {
         toast({
@@ -45,7 +47,8 @@ const ConnectionButton = () => {
         activate(connector)
         setConnected(true)
         localStorage.setItem('previouslyConnected', 'true')
-    }, [activate])
+        showSuccessToast()
+    }, [activate, showSuccessToast])
     
     const disconnect = () => {
         deactivate()
@@ -59,14 +62,7 @@ const ConnectionButton = () => {
         connect()
     }, [connect])
 
-    // if (active) {
-    //     showSuccessToast()
-    // }
-
-    // if (error) {
-    //     showErrorToast()
-    //     // setConnecting(false)
-    // }
+    
 
     return (        
         active 

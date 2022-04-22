@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Box, Image, Button, Text, Center, VStack, StackDivider } from "@chakra-ui/react";
+import { Box, Image, Button, Text, Center, VStack, StackDivider, useToast } from "@chakra-ui/react";
 import {
     NumberInput,
     NumberInputField,
@@ -12,6 +12,7 @@ import MintButton from '../mint-button/mint-button'
 import { useWeb3React } from '@web3-react/core'
 import { ethers } from 'ethers'
 const { API_KEY, privateKey } = require('../../secrets.json');
+const { abi } = require("../../contracts/EuphoriaClub.json");
 
 interface mintProps {
     mintedQuantity?: number,
@@ -28,13 +29,14 @@ const MintBox = ({mintedQuantity = 0, mintCost = 0.01 }: mintProps) => {
     const [stateContract, setStateContract] = useState(null)
 
     // state de datos
-    const [minted, setminted] = useState(0)
-    const [price, setPrice] = useState("")
+    const [minted, setMinted] = useState(0)
+    const [price, setPrice] = useState("0")
     const [quantity, setQuantity] = useState(1)
+
+    const toast = useToast()
 
     const handleChange = (value: any) => setQuantity(value)
 
-    const { abi } = require("../../contracts/EuphoriaClub.json");
     const contractAddress = "0x2643E245Ab5D174B6e012D10c242FF2B309e746D";
     const network = "rinkeby"
 
@@ -49,26 +51,53 @@ const MintBox = ({mintedQuantity = 0, mintCost = 0.01 }: mintProps) => {
 
     const updateEthers = useCallback( async () => {
         console.log("Se actualiza ethers")
-        const provider = new ethers.providers.Web3Provider(window.ethereum)
-        const signer = provider.getSigner()
-        setStateSigner(signer);
-        let contract: any = new ethers.Contract(contractAddress, abi, signer);
-        setStateContract(contract);
-      }, [abi])
+        if(window.ethereum) {
+            const provider = new ethers.providers.Web3Provider(window.ethereum)
+            setStateProvider(provider);
+            const signer = provider.getSigner()
+            setStateSigner(signer);
+            let contract: any = new ethers.Contract(contractAddress, abi, signer);
+            setStateContract(contract);
+        }
+        else {        
+            toast({
+                title: 'Please Install MetaMask.',
+                description: "Can't connect to web3.",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+            })
+        }
+    }, [toast])
     
 
-      const getValues = useCallback( async () => {
+    const getValues = useCallback( async () => {
         console.log("Se ejecuta getValues")
-        const mintedTokens = await stateContract.totalSupply();
-        setminted(mintedTokens.toNumber());
-        console.log("La cantidad minteada es:", mintedTokens.toNumber())
-        const priceContract = await stateContract.price();
-        setPrice(ethers.utils.formatEther(priceContract));
-        console.log("El precio es:", ethers.utils.formatEther(priceContract))        
-      }, [stateContract])
+        try {
+            const mintedTokens = await stateContract.totalSupply();
+            setMinted(mintedTokens.toNumber());
+            console.log("La cantidad minteada es:", mintedTokens.toNumber())
+            const priceContract = await stateContract.price();
+            setPrice(ethers.utils.formatEther(priceContract));
+            console.log("El precio es:", ethers.utils.formatEther(priceContract))
+            if (account) {
+                const balance = await stateProvider.getBalance(account)
+                console.log("El balance de mi cuenta es:", ethers.utils.formatEther(balance))    
+            }   
+        }
+        catch (error) {
+            toast({
+                title: 'Something went wrong.',
+                description: "Check your wallet is connected.",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+            })
+        }
+    }, [stateContract, stateProvider, account, toast])
 
 
-      useEffect(() => {
+    useEffect(() => {
         if (stateContract === null) {
             updateEthers()
         }

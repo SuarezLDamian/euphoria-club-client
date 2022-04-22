@@ -7,7 +7,7 @@ const { abi } = require("../../contracts/EuphoriaClub.json");
 
 
 
-const MintButton = (quantity: any) => {
+const MintButton = (quantity) => {
 
     const {
         activate,
@@ -42,7 +42,7 @@ const MintButton = (quantity: any) => {
         await provider.send("eth_requestAccounts", []); // enviar pop-up en Metamask
         const signer = provider.getSigner()
         setStateSigner(signer);
-        const contract: any = new ethers.Contract(contractAddress, abi, signer);
+        const contract = new ethers.Contract(contractAddress, abi, signer);
         setStateContract(contract);
 
         // validaciones de state

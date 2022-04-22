@@ -16,6 +16,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/mint-box/mint-box.jsx", "components/mint-button/mint-button.jsx"],
   "exclude": ["node_modules"]
 }

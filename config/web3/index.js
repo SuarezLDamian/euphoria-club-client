@@ -1,7 +1,7 @@
 import web3 from 'web3'
 import { InjectedConnector } from '@web3-react/injected-connector'
 
-const ETHEREUM_NETWORK_ID = 1
+const ETHEREUM_NETWORK_ID = 4
 
 export const connector = new InjectedConnector ({
     supportedChainIds: [ETHEREUM_NETWORK_ID]

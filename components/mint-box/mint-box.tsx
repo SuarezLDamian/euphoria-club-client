@@ -61,7 +61,7 @@ const MintBox = ({mintedQuantity = 0, mintCost = 0.01 }: mintProps) => {
         else {        
             toast({
                 title: 'Please Install MetaMask.',
-                description: "Can't connect to web3.",
+                description: "You need a wallet to access web 3.0",
                 status: 'error',
                 duration: 9000,
                 isClosable: true,

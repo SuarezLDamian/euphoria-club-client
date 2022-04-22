@@ -4,6 +4,8 @@ import Countdown from 'react-countdown';
 import { ethers } from 'ethers'
 const { abi } = require("../../contracts/EuphoriaClub.json");
 
+let window: any;
+
 const MintButton = (quantity: any) => {
 
     const NETWORK_ID = 4

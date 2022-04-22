@@ -18,6 +18,8 @@ interface mintProps {
     mintCost?: number
 }
 
+let window: any;
+
 const MintBox = ({mintedQuantity = 0, mintCost = 0.01 }: mintProps) => {
 
     const [ disabled, setDisabled ] = useState(true)

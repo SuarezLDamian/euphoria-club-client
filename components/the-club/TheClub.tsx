@@ -1,11 +1,10 @@
-import { Box, Center, Heading, Stack, Text, Divider, Image } from '@chakra-ui/react'
+import { Box, Center, Heading, Stack, Text, Divider } from '@chakra-ui/react'
+import Carousel from '../carousel/Carousel'
 import topwave from '/public/the-club-top-wave.svg'
 
 const TheClub = () => {
     
     return (
-        <>
-        {/* <Image src={'/the-club-top-wave.svg'} alt='top wave' layout='fill'></Image> */}
         <Box style={{background: '#6F1EBD', padding: '6rem'}}>
             <Center>                
                 <Heading as='h2' size='3xl' style={{color: 'white'}}>
@@ -13,10 +12,10 @@ const TheClub = () => {
                 </Heading>
             </Center>
             <Center>
-                <Stack spacing={'2rem'} marginTop='4rem' maxW={'6xl'}>           
-                    {/* <Center>
-                        <Image src={'/the-club-avatars.png'} alt='avatars' width={'24rem'} height={'18rem'}></Image>
-                    </Center>      */}
+                <Stack spacing={'2rem'} marginTop='2rem' maxW={'6xl'}>
+                    <Center>
+                        <Carousel/>
+                    </Center>
                     <Text fontSize='2xl' align='center' style={{color: 'white'}}>Don&apos;t miss the opportunity to become part of the community and to mint a new member of the Club!, or if you are one of those lucky ones, to mint an official Cast member with your official traits!</Text>
                     <Center height='2rem'>
                         <Divider borderWidth={'3px'} borderRadius={'xl'} orientation='vertical' />
@@ -33,7 +32,6 @@ const TheClub = () => {
                 </Stack>
             </Center>            
         </Box>
-        </>
     )
 }
 

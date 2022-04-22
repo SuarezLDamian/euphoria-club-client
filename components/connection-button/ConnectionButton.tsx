@@ -43,26 +43,34 @@ const ConnectionButton = () => {
     }, [toast])
     
     const connect = useCallback(() => {
-        setConnecting(true)
-        activate(connector)
-        setConnected(true)
-        localStorage.setItem('previouslyConnected', 'true')
-        showSuccessToast()
-    }, [activate, showSuccessToast])
+        try{
+            setConnecting(true)
+            activate(connector)
+            setConnected(true)
+            localStorage.setItem('previouslyConnected', 'true')
+            showSuccessToast()
+        }
+        catch (error) {
+            showErrorToast()
+        }
+    }, [activate, showSuccessToast, showErrorToast])
     
-    const disconnect = () => {
-        deactivate()
-        setConnecting(false)
-        setConnected(false)
-        localStorage.removeItem('previouslyConnected')
-    }
+    // const disconnect = () => {
+    //     deactivate()
+    //     setConnecting(false)
+    //     setConnected(false)
+    //     localStorage.removeItem('previouslyConnected')
+    // }
     
     useEffect(() => {
-    if (localStorage.getItem('previouslyConnected') === 'true')
+    if (!active && !localStorage.getItem('previouslyConnected') )
         connect()
-    }, [connect])
+    }, [active, connect])
 
-    
+    // if (error) {
+    //     showErrorToast()
+    //     setConnecting(false)
+    // }
 
     return (        
         active 
@@ -73,7 +81,7 @@ const ConnectionButton = () => {
             fontWeight={600}
             color={'white'}
             bg={'#6F1EBD'}
-            onClick={disconnect}
+            // onClick={disconnect}
             _hover={{
                 bg: 'euphoria.200',
             }}>
@@ -81,7 +89,7 @@ const ConnectionButton = () => {
         </Button>
         : 
         <Button
-            isLoading={connecting? true : false}
+            // isLoading={connecting? true : false}
             loadingText='Connecting'
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}

@@ -18,8 +18,6 @@ interface mintProps {
     mintCost?: number
 }
 
-let window: any;
-
 const MintBox = ({mintedQuantity = 0, mintCost = 0.01 }: mintProps) => {
 
     const [ disabled, setDisabled ] = useState(true)
@@ -74,27 +72,30 @@ const MintBox = ({mintedQuantity = 0, mintCost = 0.01 }: mintProps) => {
 
     const getValues = useCallback( async () => {
         console.log("Se ejecuta getValues")
-        try {
-            const mintedTokens = await stateContract.totalSupply();
-            setMinted(mintedTokens.toNumber());
-            console.log("La cantidad minteada es:", mintedTokens.toNumber())
-            const priceContract = await stateContract.price();
-            setPrice(ethers.utils.formatEther(priceContract));
-            console.log("El precio es:", ethers.utils.formatEther(priceContract))
-            if (account) {
-                const balance = await stateProvider.getBalance(account)
-                console.log("El balance de mi cuenta es:", ethers.utils.formatEther(balance))    
-            }   
-        }
-        catch (error) {
-            toast({
-                title: 'Something went wrong.',
-                description: "Check your wallet is connected.",
-                status: 'error',
-                duration: 9000,
-                isClosable: true,
-            })
-        }
+        
+        if (account) {
+            try {
+                const mintedTokens = await stateContract.totalSupply();
+                setMinted(mintedTokens.toNumber());
+                console.log("La cantidad minteada es:", mintedTokens.toNumber())
+                const priceContract = await stateContract.price();
+                setPrice(ethers.utils.formatEther(priceContract));
+                console.log("El precio es:", ethers.utils.formatEther(priceContract))
+                if (account) {
+                    const balance = await stateProvider.getBalance(account)
+                    console.log("El balance de mi cuenta es:", ethers.utils.formatEther(balance))    
+                }   
+            }
+            catch (error) {
+                toast({
+                    title: 'Something went wrong.',
+                    description: "Check your wallet is connected.",
+                    status: 'error',
+                    duration: 9000,
+                    isClosable: true,
+                })
+            }
+        }   
     }, [stateContract, stateProvider, account, toast])
 
 

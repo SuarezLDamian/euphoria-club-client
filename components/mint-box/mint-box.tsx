@@ -48,9 +48,12 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
         error
     } = useWeb3React()
 
+    let window: any
+
     const updateEthers = useCallback( async () => {
         console.log("Se actualiza ethers")
-        if(!window.ethereum) {
+
+        if(typeof window !== 'undefined' && typeof window.ethereum == 'undefined' || null) {
             toast({
                 title: 'Please Install MetaMask.',
                 description: "You need a wallet to access web 3.0",
@@ -60,14 +63,16 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
             })
         }
         else {
-            const provider = new ethers.providers.Web3Provider(window.ethereum)
-            setStateProvider(provider);
-            const signer = provider.getSigner()
-            setStateSigner(signer);
-            let contract = new ethers.Contract(contractAddress, abi, signer);
-            setStateContract(contract);
+            if(typeof window !== 'undefined' && typeof window.ethereum != 'undefined') {
+                const provider = new ethers.providers.Web3Provider(window.ethereum)
+                setStateProvider(provider);
+                const signer = provider.getSigner()
+                setStateSigner(signer);
+                let contract = new ethers.Contract(contractAddress, abi, signer);
+                setStateContract(contract);
+            }
         }
-    }, [toast])
+    }, [toast, window])
     
 
     const getValues = useCallback( async () => {

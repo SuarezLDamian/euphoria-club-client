@@ -16,6 +16,8 @@ const MintButton = (quantity: any) => {
         error
     } = useWeb3React()
 
+    let window: any
+
     const toast = useToast()
 
     const [stateProvider, setStateProvider] = useState(null)
@@ -31,7 +33,7 @@ const MintButton = (quantity: any) => {
     }
 
     const mintHandler = async () => {
-      if (account && window.ethereum) {
+      if (account && typeof window !== 'undefined' && typeof window.ethereum != 'undefined') {
         try {
         // conexión
         const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -66,9 +68,9 @@ const MintButton = (quantity: any) => {
             status: 'error',
             duration: 9000,
             isClosable: true,
-        })
+          })
         }
-    }
+      }
     }
 
     // const [ disabled, setDisabled ] = useState(true)

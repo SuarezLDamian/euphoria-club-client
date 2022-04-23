@@ -48,12 +48,12 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
         error
     } = useWeb3React()
 
-    let window: any
+    window.ethereum = window.ethereum || {};
 
     const updateEthers = useCallback( async () => {
-        console.log("Se actualiza ethers")
-
-        if(typeof window !== 'undefined' && typeof window.ethereum == 'undefined' || null) {
+        // console.log("Window tiene tipo:", typeof(window))
+        // console.log("Window:", window)
+        if(typeof window != 'undefined' && !window.ethereum ) {
             toast({
                 title: 'Please Install MetaMask.',
                 description: "You need a wallet to access web 3.0",
@@ -63,7 +63,8 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
             })
         }
         else {
-            if(typeof window !== 'undefined' && typeof window.ethereum != 'undefined') {
+            console.log("Se actualiza ethers. Cuenta conectada:", active, ", Window es", typeof(window))
+            if(typeof window != 'undefined' ) {
                 const provider = new ethers.providers.Web3Provider(window.ethereum)
                 setStateProvider(provider);
                 const signer = provider.getSigner()
@@ -72,13 +73,14 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
                 setStateContract(contract);
             }
         }
-    }, [toast, window])
+    }, [toast, active])
     
 
     const getValues = useCallback( async () => {
-        console.log("Se ejecuta getValues")
-        
-        if (account) {
+        console.log("Se ejecuta getValues. Cuenta conectada:", active, ", Window es", typeof(window))
+
+        if (active) {
+            console.log("Entra en getValues")
             try {
                 const mintedTokens = await stateContract.totalSupply();
                 setMinted(mintedTokens.toNumber());
@@ -101,11 +103,11 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
                 })
             }
         }   
-    }, [stateContract, stateProvider, account, toast])
+    }, [stateContract, stateProvider, active, account, toast])
 
 
     useEffect(() => {
-        if (stateContract === null) {
+        if ( typeof(window) === "undefined" || stateContract === null) {
             updateEthers()
         }
         else {

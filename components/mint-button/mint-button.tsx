@@ -16,7 +16,7 @@ const MintButton = (quantity: any) => {
         error
     } = useWeb3React()
 
-    let window: any
+    window.ethereum = window.ethereum || {};
 
     const toast = useToast()
 
@@ -33,7 +33,9 @@ const MintButton = (quantity: any) => {
     }
 
     const mintHandler = async () => {
-      if (account && typeof window !== 'undefined' && typeof window.ethereum != 'undefined') {
+      console.log("Se intenta mintear. Cuenta conectada:", active, ", Window es", typeof(window))
+
+      if (active && typeof window !== 'undefined' && typeof window.ethereum != 'undefined') {
         try {
         // conexión
         const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -46,9 +48,9 @@ const MintButton = (quantity: any) => {
         setStateContract(contract);
 
         // validaciones de state
-        console.log("el contract de useState es:", stateContract)
-        console.log("el contract sigue siendo:", contract)
-        console.log("el signer de useState es:", stateSigner)
+        // console.log("el contract de useState es:", stateContract)
+        // console.log("el contract sigue siendo:", contract)
+        // console.log("el signer de useState es:", stateSigner)
         const isPresaleActive = await contract.presaleActive();
         console.log("[mint-button]La presale está activa?:", isPresaleActive)
         

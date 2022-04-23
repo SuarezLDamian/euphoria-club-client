@@ -6,7 +6,7 @@ import truncateEthAddress from 'truncate-eth-address'
 
 const ConnectionButton = () => {
 
-    const [ connecting, setConnecting ] = useState(false)
+    // const [ connecting, setConnecting ] = useState(false)
     const [ connected, setConnected ] = useState(false)
 
     const toast = useToast()
@@ -44,13 +44,14 @@ const ConnectionButton = () => {
     
     const connect = useCallback(() => {
         try{
-            setConnecting(true)
+            // setConnecting(true)
             activate(connector)
             setConnected(true)
             localStorage.setItem('previouslyConnected', 'true')
             showSuccessToast()
         }
         catch (error) {
+            localStorage.removeItem('previouslyConnected')
             showErrorToast()
         }
     }, [activate, showSuccessToast, showErrorToast])
@@ -63,9 +64,9 @@ const ConnectionButton = () => {
     // }
     
     useEffect(() => {
-    if (!active && !localStorage.getItem('previouslyConnected') )
+    if (!connected && !active && localStorage.getItem('previouslyConnected') )
         connect()
-    }, [active, connect])
+    }, [connected, active, connect])
 
     // if (error) {
     //     showErrorToast()
@@ -85,7 +86,7 @@ const ConnectionButton = () => {
             _hover={{
                 bg: 'euphoria.200',
             }}>
-            {account ? truncateEthAddress(account) : account}
+            {active ? truncateEthAddress(account) : account}
         </Button>
         : 
         <Button

@@ -48,12 +48,12 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
         error
     } = useWeb3React()
 
-    window.ethereum = window.ethereum || {};
+    window.ethereum = window.ethereum;
 
     const updateEthers = useCallback( async () => {
         // console.log("Window tiene tipo:", typeof(window))
         // console.log("Window:", window)
-        if(typeof window != 'undefined' && !window.ethereum ) {
+        if(typeof(window) != 'undefined' && window.ethereum === undefined) {
             toast({
                 title: 'Please Install MetaMask.',
                 description: "You need a wallet to access web 3.0",
@@ -63,14 +63,26 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
             })
         }
         else {
-            console.log("Se actualiza ethers. Cuenta conectada:", active, ", Window es", typeof(window))
-            if(typeof window != 'undefined' ) {
-                const provider = new ethers.providers.Web3Provider(window.ethereum)
-                setStateProvider(provider);
-                const signer = provider.getSigner()
-                setStateSigner(signer);
-                let contract = new ethers.Contract(contractAddress, abi, signer);
-                setStateContract(contract);
+            console.log("Se actualiza ethers. Cuenta conectada:", active, ", window.ethereum es:", typeof(window.ethereum))
+            if(typeof(window) != 'undefined' && window.ethereum != {}) {
+                console.log("Se setea conexión")
+                try {
+                    const provider = new ethers.providers.Web3Provider(window.ethereum)
+                    setStateProvider(provider);
+                    const signer = provider.getSigner()
+                    setStateSigner(signer);
+                    let contract = new ethers.Contract(contractAddress, abi, signer);
+                    setStateContract(contract);
+                }
+                catch {
+                    toast({
+                        title: 'Please Install MetaMask.',
+                        description: "You need a wallet to access web 3.0",
+                        status: 'error',
+                        duration: 15000,
+                        isClosable: true,
+                    })
+                }
             }
         }
     }, [toast, active])

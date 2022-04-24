@@ -50,49 +50,79 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
 
     window.ethereum = window.ethereum;
 
+    const setInfuraConnection = useCallback( async () => {
+        // if (stateContract === null) {
+            console.log("Conexión con Infura")
+            const provider = new ethers.providers.InfuraProvider("rinkeby");
+            setStateProvider(provider);
+            // console.log("Infura provider:", provider)
+            let contract = new ethers.Contract(contractAddress, abi, provider);
+            setStateContract(contract);
+            // console.log("Contrato de infura:", contract)
+        // }
+    }, [])
+
+    const setMetamaskConnection = useCallback( async () => {
+        console.log("Conexión con MetaMask")
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        // console.log("Metamask provider:", provider)
+        setStateProvider(provider);
+        const signer = provider.getSigner()
+        setStateSigner(signer);
+        let contract = new ethers.Contract(contractAddress, abi, signer);
+        setStateContract(contract);
+        // console.log("Contrato de Metamask", contract)
+    }, [])
+
     const updateEthers = useCallback( async () => {
-        // console.log("Window tiene tipo:", typeof(window))
-        // console.log("Window:", window)
-        if(typeof(window) != 'undefined' && window.ethereum === undefined) {
+        if(typeof(window) != 'undefined' && window.ethereum === undefined) { //si no está MetaMask instalado
             toast({
                 title: 'Please Install MetaMask.',
                 description: "You need a wallet to access web 3.0",
                 status: 'error',
-                duration: 15000,
+                duration: 30000,
                 isClosable: true,
             })
         }
         else {
             console.log("Se actualiza ethers. Cuenta conectada:", active, ", window.ethereum es:", typeof(window.ethereum))
             if(typeof(window) != 'undefined' && window.ethereum != {}) {
-                console.log("Se setea conexión")
                 try {
-                    const provider = new ethers.providers.Web3Provider(window.ethereum)
-                    setStateProvider(provider);
-                    const signer = provider.getSigner()
-                    setStateSigner(signer);
-                    let contract = new ethers.Contract(contractAddress, abi, signer);
-                    setStateContract(contract);
+                    console.log("Se setea conexión")
+                    if (!active) {
+                        setInfuraConnection()
+                    }
+                    else {
+                        setMetamaskConnection()
+                    }
+                    // const provider = new ethers.providers.Web3Provider(window.ethereum)
+                    // setStateProvider(provider);
+                    // const signer = provider.getSigner()
+                    // setStateSigner(signer);
+                    // let contract = new ethers.Contract(contractAddress, abi, signer);
+                    // setStateContract(contract);
+                    // const mintedTokens = await contract.totalSupply();
+                    // setMinted(mintedTokens.toNumber());
+                    // console.log("Tokens minteados:", mintedTokens.toNumber())
                 }
                 catch {
                     toast({
                         title: 'Please Install MetaMask.',
                         description: "You need a wallet to access web 3.0",
                         status: 'error',
-                        duration: 15000,
+                        duration: 30000,
                         isClosable: true,
                     })
                 }
             }
         }
-    }, [toast, active])
-    
+    }, [toast, active, setInfuraConnection, setMetamaskConnection])
 
     const getValues = useCallback( async () => {
-        console.log("Se ejecuta getValues. Cuenta conectada:", active, ", Window es", typeof(window))
+        // console.log("Se ejecuta getValues. Cuenta conectada:", active, ", Window es", typeof(window))
 
-        if (active) {
-            console.log("Entra en getValues")
+        // if (active) {
+            // console.log("Entra en getValues")
             try {
                 const mintedTokens = await stateContract.totalSupply();
                 setMinted(mintedTokens.toNumber());
@@ -114,10 +144,10 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
                     isClosable: true,
                 })
             }
-        }   
-    }, [stateContract, stateProvider, active, account, toast])
+        // }   
+    }, [stateContract, stateProvider, account, toast])
 
-
+    // If window.ethereum is not defined, then the user can't get contract values
     useEffect(() => {
         if ( typeof(window) === "undefined" || stateContract === null) {
             updateEthers()
@@ -125,13 +155,13 @@ const MintBox = (/*{mintedQuantity = 0, mintCost = 0.01 }: mintProps*/) => {
         else {
             getValues()
         }
-    }, [stateContract, updateEthers, getValues])
+    }, [stateContract, updateEthers, getValues, active])
 
     return (
         <Box padding={'2rem'} minW='xs' maxW='lg' maxH='33rem' borderWidth='3px' borderRadius='lg' style={{background: '#48137B'}}>
             <VStack spacing={1}>
                 <Center>
-                    <Image boxSize={'200px'} src='/mint-gif.gif' alt='Sample Euphoria Club' style={{borderRadius: '0.5rem'}}/>
+                    <Image boxSize={'200px'} src='/mint-gif.gif' alt='Sample Euphoria Club' style={{borderRadius: '1rem'}}/>
                 </Center>
                 <VStack spacing={1} padding={'1rem'}>
                     <Text fontSize='lg' style={{color: 'white'}}>{minted} / 4420</Text> 
